@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class JDBCExemplo {
+public class JDBCExemplo1ConexaoMysql {
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		//Class é usada para fazer uma representação do objeto necessário até o java 5, após não é necessário, mas é necessário também em servlet container as vezes.
