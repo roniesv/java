@@ -10,7 +10,7 @@ public class JDBCExemplo1ConexaoMysql {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		//DriverManager é a classe concreta que implementa a interface JDBC basta passar a string de conexão
-		Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/test?useTimezonetrue&serverTimezone=UTC","ronie","admin3393");
+		Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/fj21?useTimezonetrue&serverTimezone=UTC","root","admin");
 		System.out.println("Conectado!");
 		conexao.close();	
 	}

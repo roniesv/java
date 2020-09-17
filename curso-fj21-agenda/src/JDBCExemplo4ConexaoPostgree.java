@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 public class JDBCExemplo4ConexaoPostgree {
 	
-	public static void main(String[] args) {
-		Connection conn;
+	public static void main(String[] args) throws SQLException {
+		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/fj21", "postgres", "admin");
 			System.out.println("Conectado com sucesso, Seja bem vindo ao Postgre");
@@ -24,6 +24,9 @@ public class JDBCExemplo4ConexaoPostgree {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		finally {
+			conn.close();
 		}
 		
 		
