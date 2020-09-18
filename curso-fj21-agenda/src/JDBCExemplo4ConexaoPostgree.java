@@ -12,6 +12,7 @@ public class JDBCExemplo4ConexaoPostgree {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/fj21", "postgres", "admin");
 			System.out.println("Conectado com sucesso, Seja bem vindo ao Postgre");
 			Statement stmt = conn.createStatement();
+			//acaba sendo má prática hoje usa-se o PreparedStatemnt mas funciona
 			stmt.executeQuery("select * from contatos");
 			ResultSet rs = stmt.getResultSet();
 			while(rs.next()) {
