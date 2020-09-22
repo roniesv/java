@@ -14,7 +14,7 @@
   	<servlet-class>com.caelum.servlet.oiMundo</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>primeraServlet</servlet-name>
+  	<servlet-name>primeiraServlet</servlet-name>
   	<url-pattern>/oi</url-pattern>
   </servlet-mapping>
   
