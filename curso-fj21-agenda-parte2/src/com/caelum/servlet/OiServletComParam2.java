@@ -1,4 +1,4 @@
-package br.com.caelum.servlet;
+package com.caelum.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,30 +10,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet(
-	name="OiServlet7",
-	urlPatterns = {"/oi7"},
-
-		initParams = {
-				@WebInitParam(name="param1", value="Jó"),
-				@WebInitParam(name="param2", value="Velho Testamento")
-		}
+@WebServlet (
+	name = "OiServlet6",
+	urlPatterns = {"/oi6"},
+	initParams = {
+			@WebInitParam(name="param1", value="Angelina"),
+			@WebInitParam(name="param2", value="Bisavó")
+	}
+	
 )
-public class OiServletComParam7 extends HttpServlet {
+public class OiServletComParam2 extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("Text/html");
+		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		
 		out.println("<h2>Exemplo com InitParm Servlet</h2>");
+		ServletConfig config = getServletConfig();
 		
-		out.println("Valor do parâmentro 1: "+getServletConfig().getInitParameter("param1"));
+		String parametro1 = config.getInitParameter("param1");
+		out.println("Valor do parâmentro 1: "+parametro1);
 		
-		out.println("Valor do parâmentro 2: "+getServletConfig().getInitParameter("param2"));
+		String parametro2 = config.getInitParameter("param2");
+		out.println("<br>Valor do parâmetro 2: "+parametro2);
 		
 		out.close();
+		
+		
 	}
-
-	
 
 }

@@ -16,7 +16,7 @@ import com.caleum.jdbc.modelo.Contato;
 public class ContatoDao {
 	private Connection con;
 
-	public ContatoDao() {
+	public ContatoDao() throws ClassNotFoundException {
 		this.con = new ConnectionFactory().getConnection();
 	}
 

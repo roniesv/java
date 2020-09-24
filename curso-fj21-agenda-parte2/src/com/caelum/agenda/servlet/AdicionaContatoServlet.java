@@ -1,7 +1,8 @@
-package br.com.caelum.agenda.servlet;
+package com.caelum.agenda.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,15 +37,31 @@ public class AdicionaContatoServlet extends HttpServlet{
 			return;
 		}
 		
+		
+		
 		Contato contato = new Contato();
+		
 		contato.setNome(nome);
 		contato.setEmail(email);
 		contato.setEndereco(endereco);
 		contato.setDataNascimento(dataNascimento);
 		
+		ContatoDao dao;
 		
-		ContatoDao dao = new ContatoDao();
-		dao.inserir(contato);
+		
+			try {
+				dao= new ContatoDao();
+				dao.inserir(contato);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+		
+		
+		
 		
 		out.println("<html>");
 		out.println("<body>");
