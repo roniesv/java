@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.caelum.jdbc.dao.ContatoDao;
-import com.caleum.jdbc.modelo.Contato;
+import com.caelum.agenda.dao.ContatoDao;
+import com.caelum.agenda.modelo.Contato;
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet{
 	@Override

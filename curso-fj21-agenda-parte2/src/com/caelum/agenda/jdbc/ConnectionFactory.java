@@ -1,4 +1,4 @@
-package com.caleum.jdbc;
+package com.caelum.agenda.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

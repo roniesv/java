@@ -1,4 +1,4 @@
-package com.caleum.jdbc.modelo;
+package com.caelum.agenda.modelo;
 
 import java.util.Calendar;
 

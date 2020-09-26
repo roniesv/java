@@ -1,4 +1,4 @@
-package com.caelum.jdbc.dao;
+package com.caelum.agenda.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.caelum.jdbc.exception.DaoException;
-import com.caleum.jdbc.ConnectionFactory;
-import com.caleum.jdbc.modelo.Contato;
+import com.caelum.agenda.exception.DaoException;
+import com.caelum.agenda.jdbc.ConnectionFactory;
+import com.caelum.agenda.modelo.Contato;
 
 public class ContatoDao {
 	private Connection con;

@@ -1,4 +1,4 @@
-package com.caelum.jdbc.exception;
+package com.caelum.agenda.exception;
 
 public class DaoException extends RuntimeException{
 	public DaoException() {
