@@ -24,12 +24,14 @@
     	      <td>${id.count}</td>
     	      <td>${contato.nome}</td>
     	      <td>
-    	         <c:if test="${not empty contato.email}">
+    	         <c:choose>
+    	            <c:when test="${not empty contato.email}">
     	            <a href="mailto:${contato.email}">${contato.email}</a>
-    	         </c:if>
-    	         <c:if test="${empty contato.email}">
-    	         	E-mail não informado
-    	         </c:if>
+    	            </c:when>
+    	            <c:otherwise>
+    	            	E-mail não informado
+    	            </c:otherwise>
+    	         </c:choose>
     	      </td>
     	      <td>${contato.endereco}</td>
     	      <td>${contato.dataNascimento.time}</td>
