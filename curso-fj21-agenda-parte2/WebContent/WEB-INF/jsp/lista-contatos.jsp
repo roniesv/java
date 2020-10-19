@@ -12,7 +12,6 @@
 </head>
 <body>
     <c:import url="cabecalho.jsp"/>
-	<jsp:useBean id="dao" class="com.caelum.agenda.dao.ContatoDao"/>
     <table border=1>
     	<tr>
     			<th>Nº</th>
@@ -21,7 +20,7 @@
     	    	<th>Endereço</th>
     	    	<th>Data de Nascimento</th>
     	 </tr>
-    	<c:forEach var="contato" items="${dao.lista}" varStatus="id">
+    	<c:forEach var="contato" items="${contatos}" varStatus="id">
     	    
     	    <tr bgcolor="#${id.count%2 == 0 ?'aaee88':'ffffff'}">
     	      <td>${id.count}</td>
