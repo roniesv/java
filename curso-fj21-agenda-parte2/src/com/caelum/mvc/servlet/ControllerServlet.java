@@ -12,7 +12,6 @@ import com.caelum.mvc.logica.Logica;
 
 @WebServlet("/mvc")
 public class ControllerServlet extends HttpServlet {
-	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parametro = req.getParameter("logica");
 		String nomeDaClasse = "com.caelum.mvc.logica."+parametro;

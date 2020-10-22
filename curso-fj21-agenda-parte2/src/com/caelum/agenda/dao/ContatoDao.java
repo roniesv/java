@@ -103,7 +103,7 @@ public class ContatoDao {
 
 	public Contato localizaIntId(long id) {
 		try {
-			PreparedStatement stmt = this.con.prepareStatement("Select * from contatos where id" + id);
+			PreparedStatement stmt = this.con.prepareStatement("Select * from contatos where id=" + id);
 			ResultSet rs = stmt.executeQuery();
 			Contato contato = new Contato();
 			while (rs.next()) {
