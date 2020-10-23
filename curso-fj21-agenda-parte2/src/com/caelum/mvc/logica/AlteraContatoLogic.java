@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.caelum.agenda.dao.ContatoDao;
 import com.caelum.agenda.modelo.Contato;
-@WebServlet("/altera")
 public class AlteraContatoLogic implements Logica{
 	
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {

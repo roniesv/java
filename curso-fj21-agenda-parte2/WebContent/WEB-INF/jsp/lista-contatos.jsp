@@ -45,7 +45,7 @@
     	      	<a href="mvc?logica=PreAlteracaoLogic&id=${contato.id}">Alterar</a>
     	      </td>
     	      <td>
-    	      	<a href="mvc?logica=PreAdicionaLogic">Adiciona</a>
+    	      	<a href="mvc?logica=PreAdiciona">Adiciona</a>
     	      </td>
     	    </tr>	
     	</c:forEach>

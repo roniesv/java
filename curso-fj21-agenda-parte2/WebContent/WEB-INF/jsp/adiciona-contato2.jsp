@@ -1,24 +1,29 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="caelum"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Alteração de Contato</title>
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="jquery-ui.js"></script>
+<meta charset="UTF-8">
+<title>Adiciona Contato Agenda</title>
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="jquery.js"></script>
+
+<script src="jquery-ui.js"></script>
 </head>
 <body>
-    <!--  so funciona com o metodo post o get da erro  -->
-    <form action="mvc?logica=AdicionaContatoLogic" method="post">
-    	Id:<input type="text" name="id"/></br>
-		Nome:<input type="text" name="nome"/></br> 
-		Email:<input type="text" name="email"/></br> 
-		Endereço:<input type="text" name="endereco"/></br>
-		<input type="text" name="dataNascimento" value="<fmt:formatDate pattern="dd/MM/yyyy"/>" placeholder="dataNascimento" /><br>
-        <input type="submit" value="Alterar"/>  
+	<c:import url="cabecalho.jsp" />
+	<h1>Adiciona Contatos</h1>
+	<form action="mvc?logica=AdicionaContatoLogic" method="post">
+		Nome:<input type="text" name="nome" /></br> Email:<input type="text"
+			name="email" /></br> Endereço:<input type="text" name="endereco" /></br>
+		DataNascimento:
+		<caelum:campoData id="dataNascimento" />
+		</br> <input type="submit" value="Gravar" />
 	</form>
 
+	<c:import url="rodape.jsp" />
 </body>
 </html>

@@ -51,7 +51,7 @@ public class AdicionaContatoLogic implements Logica{
 		
 		
 		
-		return "/contato-adicionado.jsp";
+		return "/WEB-INF/jsp/contato-adicionado.jsp";
 	}
 	
 
