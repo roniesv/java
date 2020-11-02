@@ -1,5 +1,6 @@
 package com.caelum.mvc.logica;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,8 +17,10 @@ public class AlteraContatoLogic implements Logica{
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//long id = Long.parseLong(req.getParameter("id"));
 	   
-	   try {		   
-		ContatoDao dao = new ContatoDao();		
+	   try {
+			Connection connection = ((Connection)req.getAttribute("conexao"));
+   
+		ContatoDao dao = new ContatoDao(connection);		
 		Contato contato = new Contato();
 //		contato.setId(id);
 //		contato = dao.localizaIntId(id);

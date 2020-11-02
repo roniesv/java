@@ -16,8 +16,8 @@ import com.caelum.agenda.modelo.Contato;
 public class ContatoDao {
 	private Connection con;
 
-	public ContatoDao() throws ClassNotFoundException {
-		this.con = new ConnectionFactory().getConnection();
+	public ContatoDao(Connection connection) throws ClassNotFoundException {
+		this.con = connection;
 	}
 
 	public void inserir(Contato contato) {
@@ -31,7 +31,6 @@ public class ContatoDao {
 
 			pstm.execute();
 			pstm.close();
-			con.close();
 
 		} catch (SQLException e) {
 			new RuntimeException(e);
@@ -120,7 +119,6 @@ public class ContatoDao {
 			}
 			stmt.close();
 			rs.close();
-			con.close();
 			return contato;
 
 		} catch (SQLException e) {
@@ -145,7 +143,6 @@ public class ContatoDao {
 			//pstm.setLong(5, contato.getId();
 			pstmt.execute();
 			pstmt.close();
-			con.close();
 			
 		} catch (SQLException e) {
 			throw new DaoException("Falha na alteração do contato",e);
@@ -159,9 +156,8 @@ public class ContatoDao {
 			pstmt.setLong(1, contato.getId());
 			pstmt.execute();
 			pstmt.close();
-			con.close();
 		} catch (SQLException e) {
-			throw new DaoException("Erro na remoção ",e);
+			throw new DaoException("Erro na remo��o ",e);
 		}
 		
 	}

@@ -2,6 +2,7 @@ package com.caelum.agenda.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,12 +46,13 @@ public class AdicionaContatoServlet extends HttpServlet{
 		contato.setEmail(email);
 		contato.setEndereco(endereco);
 		contato.setDataNascimento(dataNascimento);
-		
+		Connection connection = ((Connection)req.getAttribute("conexao"));
+
 		ContatoDao dao;
 		
 		
 			try {
-				dao= new ContatoDao();
+				dao= new ContatoDao(connection);
 				dao.inserir(contato);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block

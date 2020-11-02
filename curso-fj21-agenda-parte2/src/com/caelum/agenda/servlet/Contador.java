@@ -2,6 +2,7 @@ package com.caelum.agenda.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,14 @@ public class Contador extends HttpServlet{
 		//out.println("Contador agore é: "+contador);
 		
 		
-			ContatoDao dao;			
+			ContatoDao dao;
+			Connection connection = ((Connection)req.getAttribute("conexao"));
+
 			List<Contato> contatos = new ArrayList<Contato>();
 
 			
 			try {
-				dao = new ContatoDao();
+				dao = new ContatoDao(connection);
 				contatos = dao.getLista();
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block

@@ -1,6 +1,7 @@
 package com.caelum.mvc.logica;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,9 @@ public class PreAlteracaoLogic implements Logica {
 				
 				Contato contato = new Contato();
 				contato.setId(id);
-				ContatoDao dao = new ContatoDao();
+				Connection connection = ((Connection)req.getAttribute("conexao"));
+
+				ContatoDao dao = new ContatoDao(connection);
 				contato = dao.localizaIntId(id);
 				req.setAttribute("contato", contato);
 				

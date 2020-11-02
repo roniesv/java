@@ -1,5 +1,6 @@
 package com.caelum.mvc.logica;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,12 +38,13 @@ public class AdicionaContatoLogic implements Logica{
 		contato.setEmail(email);
 		contato.setEndereco(endereco);
 		contato.setDataNascimento(dataNascimento);
-		
+		Connection connection = ((Connection)req.getAttribute("conexao"));
+
 		ContatoDao dao;
 		
 		
 			try {
-				dao= new ContatoDao();
+				dao= new ContatoDao(connection);
 				dao.inserir(contato);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
