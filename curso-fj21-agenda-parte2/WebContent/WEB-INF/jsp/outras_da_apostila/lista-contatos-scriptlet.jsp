@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*,java.text.*, com.caelum.agenda.dao.*,com.caelum.agenda.modelo.*, com.caelum.agenda.jdbc.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*,java.text.*,java.sql.Connection, com.caelum.agenda.dao.*,com.caelum.agenda.modelo.*, com.caelum.agenda.jdbc.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,8 @@
 		<th>Data Nascimento</th>
 	</tr>
 	<%
-		ContatoDao dao = new ContatoDao();
+	    Connection conn = new ConnectionFactory().getConnection();
+		ContatoDao dao = new ContatoDao(conn);
 		List<Contato> contatos = new ArrayList<Contato>();
 		contatos = dao.getLista();
 		for(Contato contato: contatos){
