@@ -2,9 +2,18 @@ package com.caelum.agenda.modelo;
 
 import java.util.Calendar;
 
+import javax.validation.constraints.Size;
+
 public class Tarefa {
 
 	private Long id;
+	
+	@Size(min=5)
+	private String descricao;
+	private boolean finalizado;
+	private Calendar dataFinalizacao;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -29,7 +38,4 @@ public class Tarefa {
 	public void setDataFinalizacao(Calendar dataFinalizacao) {
 		this.dataFinalizacao = dataFinalizacao;
 	}
-	private String descricao;
-	private boolean finalizado;
-	private Calendar dataFinalizacao;
 }
