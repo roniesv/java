@@ -2,8 +2,13 @@ package com.caelum.agenda.dao;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import com.caelum.agenda.jdbc.ConnectionFactory;
 import com.caelum.agenda.modelo.Tarefa;
@@ -11,7 +16,7 @@ import com.caelum.agenda.modelo.Tarefa;
 public class JdbcTarefaDao {
 	private Connection con;
 
-	public JdbcTarefaDao() throws ClassNotFoundException {
+	public JdbcTarefaDao() throws ClassNotFoundException{
 		this.con = new ConnectionFactory().getConnection();
 	}
 
@@ -30,36 +35,39 @@ public class JdbcTarefaDao {
 
 	}
 
-//	public List<Tarefa> getLista() {
-//
-//		try {
-//
-//			List<Tarefa> tarefas = new ArrayList<Tarefa>();
-//			String sql = "select * from tarefa";
-//			PreparedStatement pstm = con.prepareStatement(sql);
-//
-//			ResultSet rs = pstm.executeQuery();
-//
-//			while (rs.next()) {
-//
-//				Tarefa tarefa = new Tarefa();
-//				tarefa.setId(rs.getLong("id"));
-//				//tarefa.setDataFinalizacao(rs.getDate("dataFinalizacao"));
-//				Calendar data = Calendar.getInstance();
-//				data.setTime(rs.getDate("datanascimento"));
-//				//contato.setDataNascimento(data);
-//
-//				//contatos.add(contato);
-//			}
-//			rs.close();
-//			pstm.close();
-//			//return contatos;
-//
-//		} catch (SQLException e) {
-//			throw new RuntimeException(e);
-//		}
-//
-//	}
+   public List<Tarefa> getLista() {
+
+	try {
+				List<Tarefa> tarefas = new ArrayList<Tarefa>();
+				String sql = "select * from tarefas";
+				PreparedStatement pstm = con.prepareStatement(sql);
+	
+				ResultSet rs = pstm.executeQuery();
+	
+				while (rs.next()) {
+	
+					Tarefa tarefa = new Tarefa();
+					tarefa.setId(rs.getLong("id"));
+					tarefa.setDescricao(rs.getString("descricao"));
+					Calendar data = Calendar.getInstance(); 
+					Date dataExiste = rs.getDate("dataFinalizacao");
+					if(dataExiste==null) {
+						data.getTimeInMillis();
+					}
+					data.setTime(dataExiste);
+					tarefa.setDataFinalizacao(data);
+					
+					tarefas.add(tarefa);
+			}
+				rs.close();
+				pstm.close();
+				return tarefas;
+	
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+
+	}
 
 //	public List<Contato> getListaPorLetra(String letra) {
 //		try {

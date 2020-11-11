@@ -1,8 +1,11 @@
 package com.caelum.tarefas.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,6 +30,12 @@ public class TarefasController {
 		dao.inserir(tarefa);
 		return "tarefas/adicionada";
 	}
-	
+	@RequestMapping("listaTarefas")
+	public String lista(Model model) throws ClassNotFoundException{
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		List<Tarefa> tarefas = dao.getLista();
+		model.addAttribute("tarefas", dao.getLista());
+		return "tarefa/lista";
+	}
 
 }
