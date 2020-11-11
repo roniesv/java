@@ -34,8 +34,8 @@ public class TarefasController {
 	public String lista(Model model) throws ClassNotFoundException{
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		List<Tarefa> tarefas = dao.getLista();
-		model.addAttribute("tarefas", dao.getLista());
-		return "tarefa/lista";
+		model.addAttribute("tarefas", tarefas);
+		return "tarefas/lista";
 	}
 
 }

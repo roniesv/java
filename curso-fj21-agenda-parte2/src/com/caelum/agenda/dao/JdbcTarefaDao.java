@@ -50,11 +50,12 @@ public class JdbcTarefaDao {
 					tarefa.setId(rs.getLong("id"));
 					tarefa.setDescricao(rs.getString("descricao"));
 					Calendar data = Calendar.getInstance(); 
-					Date dataExiste = rs.getDate("dataFinalizacao");
-					if(dataExiste==null) {
+					
+					if(rs.getDate("dataFinalizacao")==null) {
 						data.getTimeInMillis();
+					}else {
+						data.setTime(rs.getDate("dataFinalizacao"));	
 					}
-					data.setTime(dataExiste);
 					tarefa.setDataFinalizacao(data);
 					
 					tarefas.add(tarefa);
