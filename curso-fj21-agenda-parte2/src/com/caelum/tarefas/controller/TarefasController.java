@@ -37,5 +37,25 @@ public class TarefasController {
 		model.addAttribute("tarefas", tarefas);
 		return "tarefas/lista";
 	}
+	
+	@RequestMapping("removeTarefa")
+	public String remove(Tarefa tarefa) throws ClassNotFoundException {
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		dao.remove(tarefa);
+		return "redirect:listaTarefas";
+	}
+	@RequestMapping("mostraTarefa")
+	public String mostra(Long id, Model model) throws ClassNotFoundException {
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		model.addAttribute("tarefa", dao.buscarPorId(id));
+		return "tarefa/mostra";
+	}
+	@RequestMapping("alteraTarefa")
+	public String altera(Tarefa tarefa) throws ClassNotFoundException {
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		dao.altera(tarefa);
+		return "redirect:listaTarefas";
+		
+	}
 
 }
