@@ -48,7 +48,7 @@ public class TarefasController {
 	public String mostra(Long id, Model model) throws ClassNotFoundException {
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		model.addAttribute("tarefa", dao.buscarPorId(id));
-		return "tarefa/mostra";
+		return "tarefas/mostra";
 	}
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefa tarefa) throws ClassNotFoundException {

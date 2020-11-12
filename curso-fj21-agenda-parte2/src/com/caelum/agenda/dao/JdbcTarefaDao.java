@@ -113,14 +113,14 @@ public class JdbcTarefaDao {
  	throw new RuntimeException(e);
  }}
     public void altera(Tarefa tarefa) {
-    	String sql = "update tarefas set descricao=?, finalizado=?, datafinalizacao=?, "
+    	String sql = "update tarefas set descricao=?, finalizado=?, datafinalizacao=? "
     			+ " where id=?";
     	try {
     		PreparedStatement pstmt = this.con.prepareStatement(sql);
     		pstmt.setString(1, tarefa.getDescricao());
     		pstmt.setBoolean(2, tarefa.isFinalizado());
-    		pstmt.setDate(3,(Date)tarefa.getDataFinalizacao().getTime());
-    		
+    		pstmt.setDate(3, new Date(tarefa.getDataFinalizacao().getTimeInMillis()));
+    		pstmt.setLong(4, tarefa.getId());
     	
     		pstmt.execute();
     		pstmt.close();
