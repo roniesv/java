@@ -3,5 +3,5 @@
 
 
  <script>
- 	$("#${id}").datepicker({dateFormat: 'dd/mm/yy'});
+ 	$("#${id}").datepicker();
 </script>

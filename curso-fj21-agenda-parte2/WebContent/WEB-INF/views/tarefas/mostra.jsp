@@ -15,6 +15,7 @@
 <title>Alterar Tarefas</title>
 </head>
 <body>
+
 	<h3>Alterar tarefa - ${tarefa.id}</h3>
 	<form action="alteraTarefa" method="post">
 	   <input type="hidden" name="id" value="${tarefa.id}">
@@ -28,7 +29,7 @@
 	   ${tarefa.finalizado? 'checked':''}/><br/>
 	   Data de finalização: <br/>
 	   
-       <input type="text" name="dataFinalizacao" >
+<!-- 	   <input type="text" name="dataFinalizacao" -->
 <%-- 	   value="<fmt:formatDate value="${tarefa.dataFinalizacao.time}" --%>
 <%-- 	   pattern="dd/MM/yyyy"/>"> --%>
 	   <caelum:campoData id="dataFinalizacao" />
