@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="jquery-ui.css" rel="stylesheet">
-<script src="jquery.js"></script>
-<script src="jquery-ui.js"></script>
+<link href="css/jquery-ui.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
 
 <meta charset="UTF-8">
 <title>Alterar Tarefas</title>
