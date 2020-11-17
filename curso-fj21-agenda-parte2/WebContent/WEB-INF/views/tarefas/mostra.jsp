@@ -1,13 +1,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@taglib tagdir="/WEB-INF/tags" prefix="caelum"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="caelum" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="js/jquery.js"></script>
-<script src="js/jquery-ui.js"></script>
+
 <link href="css/jquery-ui.css" rel="stylesheet">
 
 
@@ -32,10 +31,13 @@
 <!-- 	   <input type="text" name="dataFinalizacao" -->
 <%-- 	   value="<fmt:formatDate value="${tarefa.dataFinalizacao.time}" --%>
 <%-- 	   pattern="dd/MM/yyyy"/>"> --%>
+
+
 	   <caelum:campoData id="dataFinalizacao" />
 	   <br/>
 	   <input type="submit" value="Alterar">
 	</form>
-
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
 </body>
 </html>
