@@ -6,9 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/jquery-ui.css" rel="stylesheet">
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.js"></script>
+<link href="css/jquery-ui.css" rel="stylesheet">
+
 
 <meta charset="UTF-8">
 <title>Alterar Tarefas</title>
@@ -27,7 +28,7 @@
 	   ${tarefa.finalizado? 'checked':''}/><br/>
 	   Data de finalização: <br/>
 	   
-<!-- 	   <input type="text" name="dataFinalizacao" -->
+       <input type="text" name="dataFinalizacao" >
 <%-- 	   value="<fmt:formatDate value="${tarefa.dataFinalizacao.time}" --%>
 <%-- 	   pattern="dd/MM/yyyy"/>"> --%>
 	   <caelum:campoData id="dataFinalizacao" />
