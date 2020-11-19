@@ -8,10 +8,11 @@
 <script src="jquery-ui.js"></script>
 <meta charset="UTF-8">
 <title>Adiciona Contato Agenda</title>
-<link href="/curso-fj21-agenda-parte2/jquery-ui.css" rel="stylesheet">
-<script src="/curso-fj21-agenda-parte2/jquery.js"></script>
+<link href="<c:url value="/css/jquery-ui.css"/>/>" rel="stylesheet">
+<script src="<c:url value="/js/jquery.js"/>"/></script>
 
-<script src="/curso-fj21-agenda-parte2/jquery-ui.js"></script>
+<script src="<c:url value="/js/jquery-ui.js"/>"/></script>
+
 </head>
 <body>
 	<c:import url="cabecalho.jsp" />

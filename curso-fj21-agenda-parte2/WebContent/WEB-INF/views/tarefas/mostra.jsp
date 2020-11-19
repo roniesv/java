@@ -7,7 +7,7 @@
 <html>
 <head>
 
-<link href="css/jquery-ui.css" rel="stylesheet">
+<link href="/css/jquery-ui.css" type= "text/css" rel="stylesheet">
 
 
 <meta charset="UTF-8">
@@ -37,7 +37,7 @@
 	   <br/>
 	   <input type="submit" value="Alterar">
 	</form>
-<script src="js/jquery.js"></script>
-<script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.js"></script>
 </body>
 </html>
