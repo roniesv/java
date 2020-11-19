@@ -5,7 +5,7 @@
 <html>
 
 <body>
-<img src="<c:url value="/imagens/caelum-ensino-inovacao.png"/>" />
+<img src="<c:url value="/resources/imagens/caelum-ensino-inovacao.png"/>" />
 <h2>Agenda de Contatos do Ronie</h2>
 <hr/>
 
