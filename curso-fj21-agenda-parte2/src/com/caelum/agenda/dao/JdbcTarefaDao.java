@@ -132,7 +132,29 @@ public class JdbcTarefaDao {
 
 	
 
-}}
+} 
+
+	public void finaliza(Long id) {
+		
+		Tarefa tarefa = new Tarefa();
+		tarefa.setFinalizado(true);
+		Calendar date = Calendar.getInstance();  
+		
+		tarefa.setDataFinalizacao(date);
+		String sql = "update tarefas set finalizado=?, datafinalizacao=? "+ " where id=?";
+		try {
+			PreparedStatement pstmt = this.con.prepareStatement(sql);
+			pstmt.setBoolean(1, tarefa.isFinalizado());
+    		pstmt.setDate(2, new Date(tarefa.getDataFinalizacao().getTimeInMillis()));
+    		pstmt.setLong(3, id);
+    		pstmt.execute();
+    		pstmt.close();
+		}catch(SQLException e){
+    		throw new DaoException("Falha na alteração da tarefa",e);
+    	}
+		
+		
+	}}
 //public List<Contato> getListaPorLetra(String letra) {
 //try {
 //	List<Contato> contatos = new ArrayList<Contato>();

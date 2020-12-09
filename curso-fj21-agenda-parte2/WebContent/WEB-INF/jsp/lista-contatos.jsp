@@ -9,6 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Lista contatos jsp e jstl</title>
+<script type="text/javascript" src="resources/js/jquery.js"></script>
 </head>
 <body>
     <c:import url="cabecalho.jsp"/>

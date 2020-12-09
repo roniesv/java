@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.caelum.agenda.dao.JdbcTarefaDao;
 import com.caelum.agenda.modelo.Tarefa;
@@ -56,6 +57,13 @@ public class TarefasController {
 		dao.altera(tarefa);
 		return "redirect:listaTarefas";
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping("finalizaTarefa")
+	public void finaliza(Long id) throws ClassNotFoundException {
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		dao.finaliza(id);
 	}
 
 }
