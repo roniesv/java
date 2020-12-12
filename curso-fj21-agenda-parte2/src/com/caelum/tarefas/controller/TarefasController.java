@@ -2,6 +2,7 @@ package com.caelum.tarefas.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,6 @@ public class TarefasController {
 	
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefa tarefa, BindingResult result) throws ClassNotFoundException {
-		
-		
 		if(result.hasFieldErrors("descricao")) {
 			return "tarefas/formulario";
 		}
@@ -65,5 +64,14 @@ public class TarefasController {
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		dao.finaliza(id);
 	}
+	@ResponseBody
+	@RequestMapping("removeTarefa1")
+	public void remove1(Long id) throws ClassNotFoundException{
+		JdbcTarefaDao dao = new JdbcTarefaDao();
+		dao.remove1(id);
+		
+	}
+	
+	
 
 }

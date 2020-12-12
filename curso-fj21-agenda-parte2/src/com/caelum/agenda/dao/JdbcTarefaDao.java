@@ -83,6 +83,18 @@ public class JdbcTarefaDao {
 	 }
    }
    
+   public void remove1(Long id) {
+		try {
+	     	PreparedStatement pstmt = this.con.prepareStatement("delete from tarefas where id=?");
+		 	pstmt.setLong(1, id);
+		 	pstmt.execute();
+		 	pstmt.close();
+		 } catch (SQLException e) {
+		 	throw new DaoException("Erro na remoção ",e);
+		 }
+	   }
+   
+   
    public Tarefa buscarPorId(long id) {
     try {
  	PreparedStatement stmt = this.con.prepareStatement("Select * from tarefas where id=" + id);

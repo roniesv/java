@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib tagdir="/WEB-INF/tags" prefix="caelum" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,8 +8,9 @@
 <html>
 <head>
 
-<link href="/css/jquery-ui.css" type= "text/css" rel="stylesheet">
-
+<link href="<c:url value="resources/css/jquery-ui.css"/>" rel="stylesheet">
+<script src="<c:url value="resources/js/jquery.js"/>"/></script>
+<script src="<c:url value="resources/js/jquery-ui.js"/>"/></script>
 
 <meta charset="UTF-8">
 <title>Alterar Tarefas</title>
@@ -37,7 +39,6 @@
 	   <br/>
 	   <input type="submit" value="Alterar">
 	</form>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery-ui.js"></script>
+
 </body>
 </html>

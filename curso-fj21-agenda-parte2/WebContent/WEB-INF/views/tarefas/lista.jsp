@@ -22,8 +22,20 @@
     		 $("#tarefa_"+id).html("Finalizado");
     	 });
      }
+     
+     function removeTarefa(id){
+    	 $.post("removeTarefa1", {'id': id}, function(){
+    		 $("td").closest("tr").hide();
+    	 });
+    	 
+     }
   
   </script>
+ 
+  
+  
+  
+  
   
   	<a href="novaTarefa">Criar nova</a>
 	<br/><br/>
@@ -57,7 +69,8 @@
     	        	 </td>
     	        	 <td><a href="removeTarefa?id=${tarefa.id}">Remover</a></td>
     	       <td><a href="mostraTarefa?id=${tarefa.id}">Alterar</a></td>
-    	       <td></td>
+    	       <td><a href="#" onClick="removeTarefa(${tarefa.id})">Excluir</a></td>
+    			
     	    </tr>
 		</c:forEach>	
 	</table>
