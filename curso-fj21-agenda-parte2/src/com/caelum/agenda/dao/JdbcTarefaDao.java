@@ -79,7 +79,7 @@ public class JdbcTarefaDao {
 	 	pstmt.execute();
 	 	pstmt.close();
 	 } catch (SQLException e) {
-	 	throw new DaoException("Erro na remoção ",e);
+	 	throw new DaoException("Erro na remoï¿½ï¿½o ",e);
 	 }
    }
    
@@ -90,7 +90,7 @@ public class JdbcTarefaDao {
 		 	pstmt.execute();
 		 	pstmt.close();
 		 } catch (SQLException e) {
-		 	throw new DaoException("Erro na remoção ",e);
+		 	throw new DaoException("Erro na remoï¿½ï¿½o ",e);
 		 }
 	   }
    
@@ -138,7 +138,7 @@ public class JdbcTarefaDao {
     		pstmt.close();
 	
            } catch (SQLException e) {
-    		throw new DaoException("Falha na alteração do contato",e);
+    		throw new DaoException("Falha na alteraï¿½ï¿½o do contato",e);
     	}
 
 
@@ -162,76 +162,10 @@ public class JdbcTarefaDao {
     		pstmt.execute();
     		pstmt.close();
 		}catch(SQLException e){
-    		throw new DaoException("Falha na alteração da tarefa",e);
+    		throw new DaoException("Falha na alteraï¿½ï¿½o da tarefa",e);
     	}
 		
 		
 	}}
-//public List<Contato> getListaPorLetra(String letra) {
-//try {
-//	List<Contato> contatos = new ArrayList<Contato>();
-//	PreparedStatement stmt = this.con.prepareStatement("Select * from contatos where nome like ?");
-//	stmt.setString(1, letra + '%');
-//	ResultSet rs = stmt.executeQuery();
-//	while (rs.next()) {
-//		Contato contato = new Contato();
-//		contato.setId(rs.getLong("id"));
-//		contato.setNome(rs.getString("nome"));
-//		contato.setEmail(rs.getString("email"));
-//		contato.setEndereco(rs.getString("endereco"));
-//		Calendar data = Calendar.getInstance();
-//		data.setTime(rs.getDate("dataNascimento"));
-//		contato.setDataNascimento(data);
-//
-//		contatos.add(contato);
-//
-//	}
-//	rs.close();
-//	stmt.close();
-//
-//	return contatos;
-//
-//} catch (SQLException e) {
-//	throw new DaoException("NÃ£o foi possÃ­vel realizar a busca em contatos " + e);
-//}
-//}
-//
-//
-//}
-//public void altera(Contato contato) {
-//String sql = "update contatos set nome=?, email=?, endereco=?, "
-//		+ "dataNascimento=? where id=?";
-//try {
-//	PreparedStatement pstmt = this.con.prepareStatement(sql);
-//	pstmt.setString(1, contato.getNome());
-//	pstmt.setString(2, contato.getEmail());
-//	pstmt.setString(3,contato.getEndereco());
-//	pstmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
-//	pstmt.setLong(5,contato.getId());
-//
-//	//esse volta um long, que pode ser usada em um sql.date
-//	//pstmt.setDate(4, (Date) contato.getDataNascimento().getTime()); esse volta uma util.data erro
-//
-//	//pstm.setLong(5, contato.getId();
-//	pstmt.execute();
-//	pstmt.close();
-//	
-//} catch (SQLException e) {
-//	throw new DaoException("Falha na alteraÃ§Ã£o do contato",e);
-//}
-//
-//
-//}
-//public void remove(Contato contato) {
-//try {
-//	PreparedStatement pstmt = this.con.prepareStatement("delete from contatos where id=?");
-//	pstmt.setLong(1, contato.getId());
-//	pstmt.execute();
-//	pstmt.close();
-//} catch (SQLException e) {
-//	throw new DaoException("Erro na remoção ",e);
-//}
-
-//}
 
 

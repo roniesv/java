@@ -60,9 +60,11 @@ public class TarefasController {
 	
 	@ResponseBody
 	@RequestMapping("finalizaTarefa")
-	public void finaliza(Long id) throws ClassNotFoundException {
+	public String finaliza(Long id, Model model) throws ClassNotFoundException {
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		dao.finaliza(id);
+		model.addAttribute("tarefa", dao.buscarPorId(id));
+		return "tarefas/Finalizada";
 	}
 	@ResponseBody
 	@RequestMapping("removeTarefa1")
