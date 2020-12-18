@@ -1,5 +1,8 @@
 package com.caelum.tarefas.controller;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -58,11 +61,15 @@ public class TarefasController {
 		
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping("finalizaTarefa")
-	public String finaliza(Long id, Model model) throws ClassNotFoundException {
+	public String finaliza(Long id, Model model) throws ClassNotFoundException, IOException {
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		dao.finaliza(id);
+		
+//		Date dataDeFinalizacao = dao.buscarPorId(id).getDataFinalizacao().getTime();
+		
+		
 		model.addAttribute("tarefa", dao.buscarPorId(id));
 		return "tarefas/Finalizada";
 	}
@@ -71,7 +78,7 @@ public class TarefasController {
 	public void remove1(Long id) throws ClassNotFoundException{
 		JdbcTarefaDao dao = new JdbcTarefaDao();
 		dao.remove1(id);
-		
+		 
 	}
 	
 	

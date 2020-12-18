@@ -14,12 +14,11 @@
   <script type="text/javascript">
      function finalizaAgora(id){
     	 $.post("finalizaTarefa", {'id' : id}, function(resposta){
-    		 //selecionando o elemento html através da 
-    		 //id e alterando o html dele
-    		 $("#tarefa_"+id).html(resposta);
-    		 
+    		 $("#tarefa_"+id).html(resposta)
     	 });
+    	 
      }
+     
      
      function removeTarefa(id){
     	 $.post("removeTarefa1", {'id': id}, function(){
@@ -43,9 +42,8 @@
 		   	  <td>${tarefa.id}</td>
 		   	  <td>${tarefa.descricao}</td>
 		   	  <c:if test="${tarefa.finalizado eq false}">
-		   	     <td>
-		   	     	<a href="#" onclick="finalizaAgora(${tarefa.id})">Finaliza agora!
-		   	     	</a>
+		   	   <td>
+		   	     	<a href="#" onclick="finalizaAgora(${tarefa.id})">Finaliza agora!</a>
 		   	     	
 		   	     </td>
 		   	  </c:if>
@@ -62,7 +60,7 @@
     	        	 
     	       <td><a href="mostraTarefa?id=${tarefa.id}">Alterar</a></td>
     	       <td id="tarefa1_${tarefa.id}"><a href="#" onClick="removeTarefa(${tarefa.id})">Excluir</a></td>
-    			
+			
     	    </tr>
 		</c:forEach>	
 	</table>
