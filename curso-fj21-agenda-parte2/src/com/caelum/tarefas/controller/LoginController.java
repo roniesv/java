@@ -19,6 +19,7 @@ public class LoginController {
 	@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Usuario usuario, HttpSession session) throws ClassNotFoundException {
 		if (new JdbcUsuarioDao().existeUsuario(usuario)) {
+			
 			session.setAttribute("usuarioLogado", usuario);
 			return "menu";
 		}

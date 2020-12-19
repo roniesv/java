@@ -37,7 +37,6 @@ public class JdbcUsuarioDao {
 
 	}
 	public boolean existeUsuario(Usuario usuario) {
-		System.out.println(usuario.getLogin());
 		if(buscarPorId(usuario)!=null){
 			return true;
 		}
@@ -62,16 +61,18 @@ public class JdbcUsuarioDao {
     try {
  	PreparedStatement stmt = this.con.prepareStatement("select * from usuarios where login=?" );
  	stmt.setString(1, usuario.getLogin());
+    
  	ResultSet rs = stmt.executeQuery();
- 	Usuario Usuario = new Usuario();
+ 	Usuario Usuario = null; 
  	while (rs.next()) {
- 
+ 		 Usuario = new Usuario();
  		
  		Usuario.setLogin(rs.getString("login"));
  		Usuario.setSenha(rs.getString("senha"));
  		
  		 	
  	}
+ 	System.out.println(Usuario);
  	stmt.close();
  	rs.close();
  	return Usuario;
