@@ -25,7 +25,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/mvc
 		<bean class="com.caelum.tarefas.interceptor.AutorizadorInterceptor"/>
 	</mvc:interceptors>
 	
-	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="mysqlDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 	   <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 	   <property name="url" value="jdbc:mysql://localhost/curso-fj21-agenda-parte2"/>
 	   <property name="username" value="root"/>
