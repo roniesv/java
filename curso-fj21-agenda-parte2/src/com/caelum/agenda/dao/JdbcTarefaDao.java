@@ -10,15 +10,24 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.caelum.agenda.exception.DaoException;
 import com.caelum.agenda.jdbc.ConnectionFactory;
 import com.caelum.agenda.modelo.Tarefa;
-
+@Repository
 public class JdbcTarefaDao {
 	private Connection con;
-
-	public JdbcTarefaDao() throws ClassNotFoundException{
-		this.con = new ConnectionFactory().getConnection();
+    @Autowired
+	public JdbcTarefaDao(DataSource dataSource) throws ClassNotFoundException{
+		try {
+			this.con = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void inserir(Tarefa tarefa) {
