@@ -13,7 +13,7 @@ xmlns="http://java.sun.com/xml/ns/persistence"
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql:3306//localhost/fj21?createDatabaseIfNotExist=true&amp,serverTimezone=UTC"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql:3306//localhost/fj21?createDatabaseIfNotExist=true&amp;serverTimezone=UTC"/>
         <property name="javax.persistence.jdbc.user" value="root"/>
         <property name="javax.persistence.jdbc.password" value="admin" />
       <!-- Configurações específicas do Hibernate -->
