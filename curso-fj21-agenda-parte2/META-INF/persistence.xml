@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0" 
+<persistence version="2.0" 	
 xmlns="http://java.sun.com/xml/ns/persistence" 
 				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 				xsi:schemaLocation="http://java.sun.com/xml/ns/persistence         
@@ -12,8 +12,8 @@ xmlns="http://java.sun.com/xml/ns/persistence"
     <class>com.caelum.agenda.modelo.Tarefa</class>
     <properties>
       <!-- Propriedades JDBC -->
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fj21"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql:3306//localhost/fj21?createDatabaseIfNotExist=true&amp,serverTimezone=UTC"/>
         <property name="javax.persistence.jdbc.user" value="root"/>
         <property name="javax.persistence.jdbc.password" value="admin" />
       <!-- Configurações específicas do Hibernate -->
