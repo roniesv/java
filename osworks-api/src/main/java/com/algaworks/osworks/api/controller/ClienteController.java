@@ -19,27 +19,11 @@ public class ClienteController {
 	private EntityManager manager;
 	
 	@Autowired
-	private ClienteRepository clienteRepositoy;
+	private ClienteRepository clienteRepository;
 	
 	@GetMapping("/clientes")
 	public List<Cliente> listar() {
-		List<Cliente> clientes = new ArrayList<Cliente>();
-		/*Cliente cliente1 = new Cliente();
-		Cliente cliente2 = new Cliente();
-		cliente1.setId(1);
-		cliente1.setNome("Ellie");
-		cliente1.setTelefone("61 99999-7777");
-		cliente1.setEmail("ellie@thelastofus");
-		
-		cliente2.setId(2);
-		cliente2.setNome("joel");
-		cliente2.setTelefone("61 99999-7778");
-		cliente2.setEmail("joelmiller@thelastofus");
-		
-		
-	    clientes.add(cliente1);
-		clientes.add(cliente2);*/
-		return manager.createQuery("from Cliente", Cliente.class).getResultList();
+			return clienteRepository.findAll();
 	}
 
 }
