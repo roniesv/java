@@ -32,7 +32,7 @@ public class ClienteController {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
-	@GetMapping
+	@GetMapping 
 	public List<Cliente> listar() {
 			return clienteRepository.findAll();
 		//return clienteRepository.findByNome("konoramaru");
@@ -66,6 +66,7 @@ public class ClienteController {
 		cliente = clienteRepository.save(cliente);
 		return ResponseEntity.ok(cliente);
 	}
+	
 	@DeleteMapping("/{clienteId}")
 	public ResponseEntity<Void> remover(@PathVariable Long clienteId ){
 		if(!clienteRepository.existsById(clienteId)) {
