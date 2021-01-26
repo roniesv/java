@@ -1,6 +1,7 @@
 package com.algaworks.osworks.domain.service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.validation.Valid;
 
@@ -29,7 +30,7 @@ public class GestaoOrdemServicoService {
 				orElseThrow(() -> new NegocioException("Cliente não encontrado"));
 		ordemServico.setCliente(cliente);
 		ordemServico.setStatus(StatusOrdemServico.ABERTA);
-		ordemServico.setDataAbertura(LocalDateTime.now());
+		ordemServico.setDataAbertura(OffsetDateTime.now());
 		return ordemServicoRepository.save(ordemServico);
 	}
 

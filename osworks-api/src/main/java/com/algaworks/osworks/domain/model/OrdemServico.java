@@ -2,6 +2,7 @@ package com.algaworks.osworks.domain.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,11 +46,11 @@ public class OrdemServico {
 	private StatusOrdemServico status;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	private LocalDateTime dataAbertura;
+	private OffsetDateTime dataAbertura;
 	
 	@JsonProperty(access = Access.READ_ONLY)
 	@Column (name="dataFinalizacao")
-	private LocalDateTime dataFinalizada;
+	private OffsetDateTime dataFinalizada;
 
 	public Long getId() {
 		return id;
@@ -81,16 +82,16 @@ public class OrdemServico {
 	public void setStatus(StatusOrdemServico status) {
 		this.status = status;
 	}
-	public LocalDateTime getDataFinalizada() {
+	public OffsetDateTime getDataFinalizada() {
 		return dataFinalizada;
 	}
-	public void setDataFinalizada(LocalDateTime dataFinalizada) {
+	public void setDataFinalizada(OffsetDateTime dataFinalizada) {
 		this.dataFinalizada = dataFinalizada;
 	}
-	public LocalDateTime getDataAbertura() {
+	public OffsetDateTime getDataAbertura() {
 		return dataAbertura;
 	}
-	public void setDataAbertura(LocalDateTime dataAbertura) {
+	public void setDataAbertura(OffsetDateTime dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
 	@Override
