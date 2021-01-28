@@ -2,6 +2,8 @@ package com.algaworks.osworks.domain.model;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class OrdemServico {
 	@Id
@@ -34,6 +37,9 @@ public class OrdemServico {
 	@Column (name="dataFinalizacao")
 	private OffsetDateTime dataFinalizada;
 
+	@OneToMany(mappedBy="ordemServico")
+	List<Comentario> comentarios = new ArrayList<>();
+	
 	public Long getId() {
 		return id;
 	}
@@ -99,6 +105,12 @@ public class OrdemServico {
 			return false;
 		return true;
 	}
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
 	
-
+	
 }
