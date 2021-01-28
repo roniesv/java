@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.algaworks.osworks.domain.exception.NegocioException;
 @Entity
 public class OrdemServico {
 	@Id
@@ -110,6 +112,24 @@ public class OrdemServico {
 	}
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
+	}
+	
+	public boolean podeSerFinalizada() {
+		return StatusOrdemServico.ABERTA.equals(getStatus());
+	}
+	
+	public boolean naoPodeSerFinalizada(){
+		return !podeSerFinalizada();
+	}
+	
+	
+	public void finalizar() {
+		if(naoPodeSerFinalizada()){
+		  throw new NegocioException("Ordem de serviço não pode ser finalizada");
+		}
+		setStatus(StatusOrdemServico.FINALIZADA);
+		setDataFinalizada(OffsetDateTime.now());
+		
 	}
 	
 	
