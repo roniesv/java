@@ -16,10 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.caelum.agenda.exception.DaoException;
-import com.caelum.agenda.jdbc.ConnectionFactory;
 import com.caelum.agenda.modelo.Tarefa;
+import com.caelum.tarefas.dao.TarefaDao;
 @Repository
-public class JdbcTarefaDao {
+public class JdbcTarefaDao implements TarefaDao {
+	private TarefaDao dao;
 	private Connection con;
     @Autowired
 	public JdbcTarefaDao(DataSource dataSource) throws ClassNotFoundException{
@@ -29,8 +30,8 @@ public class JdbcTarefaDao {
 			throw new RuntimeException(e);
 		}
 	}
-
-	public void inserir(Tarefa tarefa) {
+@Override
+	public void adiciona(Tarefa tarefa) {
 		String sql = "insert into tarefas (descricao)" + "values (?)";
 		try {
 			PreparedStatement pstm = con.prepareStatement(sql);
@@ -44,8 +45,8 @@ public class JdbcTarefaDao {
 		}
 
 	}
-
-   public List<Tarefa> getLista() {
+@Override
+   public List<Tarefa> lista() {
 
 	try {
 				List<Tarefa> tarefas = new ArrayList<Tarefa>();
@@ -81,6 +82,7 @@ public class JdbcTarefaDao {
 			}
 
 	}
+@Override
    public void remove(Tarefa tarefa) {
 	try {
      	PreparedStatement pstmt = this.con.prepareStatement("delete from tarefas where id=?");
@@ -102,9 +104,8 @@ public class JdbcTarefaDao {
 		 	throw new DaoException("Erro na remo��o ",e);
 		 }
 	   }
-   
-   
-   public Tarefa buscarPorId(long id) {
+   @Override
+   public Tarefa buscarPorId(Long id) {
     try {
  	PreparedStatement stmt = this.con.prepareStatement("Select * from tarefas where id=" + id);
  	ResultSet rs = stmt.executeQuery();
@@ -133,6 +134,8 @@ public class JdbcTarefaDao {
  } catch (SQLException e) {
  	throw new RuntimeException(e);
  }}
+   
+   @Override
     public void altera(Tarefa tarefa) {
     	String sql = "update tarefas set descricao=?, finalizado=?, datafinalizacao=? "
     			+ " where id=?";
@@ -154,7 +157,7 @@ public class JdbcTarefaDao {
 	
 
 } 
-
+    @Override
 	public void finaliza(Long id) {
 		
 		Tarefa tarefa = new Tarefa();
@@ -175,6 +178,12 @@ public class JdbcTarefaDao {
     	}
 		
 		
-	}}
+	}
+
+	
+
+	
+
+	}
 
 
